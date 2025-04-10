@@ -1,0 +1,101 @@
+@font-face{font-family:Digital7; src:url("./assets/digital-7.ttf") format("truetype")}
+
+:root {
+  --on:  #5f5;
+  --off: #fcfcfc;
+}
+
+.flexColumn {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+.flexRow {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+body > p {
+    max-width:40em;
+    margin:1em auto;
+}
+
+footer {
+    text-align:center;
+    margin:3em;
+}
+
+svg * {
+    stroke:#444;
+    stroke-width:2px;
+    pointer-events:visible;
+    fill:#fff;
+}
+
+line.on {
+    stroke:var(--on);
+    stroke-width:3px;
+}
+
+path.on {
+    stroke:var(--on);
+    fill:var(--on);
+}
+
+g.switch circle.on {
+    stroke:var(--on);
+    fill:var(--on);
+}
+
+g.on * {
+    fill:var(--on);
+}
+
+
+g.off *,
+path.off {
+    fill:var(--off);
+}
+
+
+g.light text {
+    font-size:30px;
+}
+
+circle.node {
+    fill:#444;
+}
+
+text,tspan {
+    stroke-width:0px;
+    fill:#000;
+    font-size:20px;
+    font-family:sans-serif;
+}
+
+text.smallText {
+    font-size:15px;
+}
+
+text.on,
+text.on tspan,
+g.prong.on path,
+g.prong.on text {
+    stroke:var(--on);
+    fill:var(--on);
+}
+
+g.on text,
+g.off text,
+g.on tspan,
+g.off tspan {
+    fill:#000;
+}
+
+
+.over {
+    text-decoration:overline;
+}
