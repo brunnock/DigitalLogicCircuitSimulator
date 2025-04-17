@@ -1,6 +1,6 @@
+import {sub,Qcomp} from './common.js';
 
-
-const fourBitRegister = {
+export const fourBitRegister = {
   e2latches: { type:'wire', d:'m100,200 h550'  },
   
   d8latch8: { type:'wire', d:'m100,250 v100'  },
@@ -33,7 +33,7 @@ const fourBitRegister = {
 
 
 
-const GDLatchComponent = {
+export const GDLatchComponent = {
 
   Dflip1: { type:'wire', d:'M50,75 h100'  },
   Eflip1: { type:'wire', d:'M50,130 h100' },
@@ -53,7 +53,7 @@ const GDLatchComponent = {
 
 
 
-const norLatch2 = {
+export const norLatch2 = {
   SetNor1:   { type:'wire', d:'M50,125 h150', out:['Nor1'] },
   ResetNor2: { type:'wire', d:'M50,225 l300,-100', out:['Nor2'] },
 
@@ -71,7 +71,7 @@ const norLatch2 = {
   Q:  { type:'light', label:'Q', cx:550, cy:125, transform:'scale(.6)' },
 };
 
-const andOrLatch = {
+export const andOrLatch = {
   SetOr1:    { type:'wire', d:'M50,125 h150', out:['Or1'] },
   Or1And1:   { type:'wire', d:'M200,100 h200', out:['And1'] },
 
@@ -91,7 +91,7 @@ const andOrLatch = {
   Q:  { type:'light', label:'Q', cx:550, cy:125, transform:'scale(.6)' },
 };
 
-const norLatch = {
+export const norLatch = {
   ResetNor1: { type:'wire', d:'M75,60  h215', out:['Nor1'] },
   SetNor2:   { type:'wire', d:'M75,240 h215', out:['Nor2'] },
   Nor1Q:     { type:'wire', d:'M340,75  h130', state:true, out:['Q'] },
@@ -110,7 +110,7 @@ const norLatch = {
   QQ: { type:'light',  label:Qcomp, cx:500, cy:225, transform:'scale(.6)'},
 };
 
-const SrNandLatch = {
+export const SrNandLatch = {
   ResetNand1: { type:'wire', d:'M75,60  h215', state:true, out:['Nand1'] },
   SetNand2:   { type:'wire', d:'M75,240 h215', state:true, out:['Nand2'] },
   Nand1Q:     { type:'wire', d:'M340,75  h130', state:true, out:['Q'] },
@@ -130,7 +130,7 @@ const SrNandLatch = {
 };
 
 
-const dNorLatch = {
+export const dNorLatch = {
   DataNor2: { type:'wire', d:'M75,240 h215', out:['Nor2'] },
   DataNot1: { type:'wire', d:'M50,240 v-190 h75', out:['Not1'] },
   Not1Nor1: { type:'wire', d:'M175,50 h100', state:true, out:['Nor1'] },
@@ -152,7 +152,7 @@ const dNorLatch = {
 };
 
 
-const dNandLatch = {
+export const dNandLatch = {
   DataNand2: { type:'wire', d:'M75,240 h215', out:['Nand2'] },
   DataNot1:  { type:'wire', d:'M50,240 v-190 h75', out:['Not1'] },
   Not1Nand1: { type:'wire', d:'M175,50 h100', out:['Nand1'] },
@@ -175,7 +175,7 @@ const dNandLatch = {
 };
 
 
-const gatedSrNandLatch = {
+export const gatedSrNandLatch = {
   SetNand1:    { type:'wire', d:'M50,30 h130',  out:['Nand1'] },
   ResetNand2:  { type:'wire', d:'M50,270 h130', out:['Nand2'] },
   EnableNand1: { type:'wire', d:'M100,150 v-75 h60',  out:['Nand1'] },
@@ -203,7 +203,7 @@ const gatedSrNandLatch = {
 };
 
 
-const gatedSrNorLatch = {
+export const gatedSrNorLatch = {
   ResetAnd1:   { type:'wire', d:'M50,30 h130',  out:['And1'] },
   SetAnd2:   { type:'wire', d:'M50,270 h130',  out:['And2'] },
   
@@ -234,7 +234,7 @@ const gatedSrNorLatch = {
 
 
 
-const dLatch1 = {
+export const dLatch1 = {
   DataNand1:   { type:'wire', d:'M50,30 h130',  out:['Nand1'] },
   DataNot1:    { type:'wire', d:'M50,30 v240 h30',   out:['Not1'] },
   Not1And2:    { type:'wire', d:'M120,270 h40',  state:true, out:['Nand2'] },
@@ -264,7 +264,7 @@ const dLatch1 = {
 };
 
 
-const dLatch2 = {
+export const dLatch2 = {
   DataNot1:    { type:'wire', d:'M50,270 v-240 h30',   out:['Not1'] },
   DataAnd2:   { type:'wire', d:'M50,270 h130',  out:['And2'] },
   
@@ -295,7 +295,7 @@ const dLatch2 = {
 };
 
 
-const dLatch3 = {
+export const dLatch3 = {
   DataNand1:   { type:'wire', d:'M50,30 h130',  out:['Nand1'] },
   EnableNand1: { type:'wire', d:'M50,270 h50 v-200 h70', out:['Nand1'] },
   EnableNand2: { type:'wire', d:'M50,270 h130', out:['Nand2'] },
@@ -323,7 +323,7 @@ const dLatch3 = {
 
 
 
-const earle = {
+export const earle = {
   EnableHighNand1: { type:'wire', d:'M60,130  v-100 h200' },
   DataNand1:       { type:'wire', d:'M150,175 h60 v-100 h60' },
   DataNand2:       { type:'wire', d:'M150,175 h120' },
@@ -355,7 +355,7 @@ const earle = {
 
 };
 
-const jk = {
+export const jk = {
   JNand1:    { type:'wire', d:'M50,100 h130',  out:['Nand1'] },
   KNand2:  { type:'wire', d:'M50,300 h130', out:['Nand2'] },
   ClkNand1: { type:'wire', d:'M130,200 v-75 h30',  out:['Nand1'] },

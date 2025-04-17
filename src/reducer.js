@@ -120,7 +120,7 @@ function reducer(state2, action) {
       // join the inputs to create a binary number
       // convert that to a decimal number
       // use that number as the index to select the output
-      let output = parseInt(part.ins.map(x=>state.parts[x].state ? 1 : 0).join(''),2);
+      output = parseInt(part.ins.map(x=>state.parts[x].state ? 1 : 0).join(''),2);
       newState = {};
       Object.keys(part.outs).forEach((x,indx)=> newState[x] = (indx===output));
       return(newState);
@@ -161,8 +161,8 @@ function reducer(state2, action) {
       return parseInt(part.in.map(x => (state.parts[x].state ? '1' : '0')).join('') ,2).toString(16);
       
     case 'parent':
-      selected = state.parts[part.parent].state[part.property];
-      part.selected = selected;
+      //let selected = state.parts[part.parent].state[part.property];
+      //part.selected = selected;
       return state.parts[part.parent].state[part.property];
       
     default:  return OR(part.in);
@@ -175,10 +175,10 @@ function reducer(state2, action) {
     // go through list of parts and update states
     // if states change, then make new list of parts to update
     // update new list of parts
-    let newList = [];
+    let newList=[], selected=null, output=null;
     parts = [...new Set(parts)]; // eliminate duplicates
     parts.forEach(partID => {
-      console.log(partID);
+      //console.log(partID);
       let part = state.parts[partID];
       if (typeof part !== 'object') {
 	alert('trouble with ' +partID +' in reducer, line 185');
@@ -222,7 +222,7 @@ function reducer(state2, action) {
       
       if (part.type && part.type.startsWith('dmux')) {
 	part.state = newState;
-	let selected = parseInt(part.sigs.map(x=>state.parts[partID+'_'+x].state ? 1 : 0).join(''),2);
+	selected = parseInt(part.sigs.map(x=>state.parts[partID+'_'+x].state ? 1 : 0).join(''),2);
 	if (selected !== part.selected) {
 	  // selection has changed; falsify current selection & update outputs
 	  let oldOutput = partID+'_o'+part.selected;
@@ -230,7 +230,7 @@ function reducer(state2, action) {
 	  newList = newList.concat(state.parts[oldOutput].out);
 	}
 	part.selected = selected;
-	let output = partID+'_o'+selected;
+	output = partID+'_o'+selected;
 	state.parts[output].state = newState;
 	newList = newList.concat(state.parts[output].out);
       }
@@ -245,7 +245,8 @@ function reducer(state2, action) {
     try {
       if (newList.length>0) updateParts(newList);
     } catch (error) {
-      alert('error with ' +newList +' at reducer.212, line 248');
+      console.log(error);
+      alert('error with ' +newList +' at reducer.212');
     }
   }
 

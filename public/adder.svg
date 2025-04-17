@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300">
+
+  <title>Adder</title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <style>
+    svg * {
+    stroke-width:2px;
+    stroke:#000;
+    fill:#fff;
+    }
+    
+    text,tspan {
+    stroke-width:0px;
+    font-family:sans-serif;
+    fill:#000;
+    font-size:40px;
+    }
+
+    tspan.smaller {
+    font-size:60%;
+    }
+  </style>
+
+  <path d="m100,0 v50"></path>
+  <path d="m200,0 v50"></path>
+  <path d="m300,150 h-50"></path>
+  <path d="m150,300 v-50"></path>
+  <path d="m0,150 h50"></path>
+
+  <g text-anchor="middle">
+    <rect x="50" y="50" width="200" height="200"></rect>
+    <text x="100" y="90">A</text>
+    <text x="200" y="90">B</text>
+    <text x="90" y="160">C<tspan class="smaller">out</tspan></text>
+    <text x="220" y="160">C<tspan class="smaller">in</tspan></text>
+    <text x="150" y="240">Sum</text>
+  </g>
+
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300"
+     id="svg1">
+
+  <title></title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <style>
+    svg * {
+    stroke-width:1px;
+    stroke:#000;
+    fill:#fff;
+    }
+  </style>
+
+
+  <g transform-origin="center" transform="translate(-450,150), scale(3)">
+    <path d="M275,75 v50, l45,-25 z"></path>
+    <line x1="275" x2="250" y1="100" y2="100"></line>
+    <line x1="320" x2="350" y1="100" y2="100"></line>
+  </g>
+  <circle cx="220" cy="150" r="10" style="stroke-width:3" />
+
+</svg>

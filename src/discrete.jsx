@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function Button({partID, props, dispatch, 
                  dispatchParams={type:'pressButton', partID:partID, state:!props.state}}) {
   let {cx,cy,label,state=false,r=25,transform=''} = props;
@@ -98,11 +100,11 @@ export function Diode({props}) {
   transform = (props.type === 'led') ? '' : transform;
   let chargedClass = state ? 'on' : '';
   return <g className="diode" transformOrigin={`${cx} ${cy}`} transform={transform}>
-      <path className="triangle" d={`M${cx-25},${cy-25} v50, l45,-25 z`} className={chargedClass} />
-      <line className="verticalBar" x1={cx+20} x2={cx+20} y1={cy-25} y2={cy+25} />
-      <line className="anode" x1={cx-25} x2={cx-50} y1={cy} y2={cy} className={chargedClass} />
-      <line className="cathode" x1={cx+20} x2={cx+50} y1={cy} y2={cy} className={chargedClass} />
-    </g>
+	   <path className={'triangle' +chargedClass} d={`M${cx-25},${cy-25} v50, l45,-25 z`} />
+	   <line className={'verticalBar' +chargedClass} x1={cx+20} x2={cx+20} y1={cy-25} y2={cy+25} />
+	   <line className={'anode' +chargedClass} x1={cx-25} x2={cx-50} y1={cy} y2={cy} />
+	   <line className={'cathode' +chargedClass} x1={cx+20} x2={cx+50} y1={cy} y2={cy} />
+	 </g>
 }
 
 

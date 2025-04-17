@@ -23,6 +23,11 @@ body > p {
     margin:1em auto;
 }
 
+legend {
+    font-weight:bold;
+    font-size:150%;
+}
+
 footer {
     text-align:center;
     margin:3em;

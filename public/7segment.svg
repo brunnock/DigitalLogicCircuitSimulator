@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300">
+
+  <title>7 segment LED</title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <rect width="100%" height="100%" fill="#000" />
+
+  <defs>
+    <symbol id="segment">
+      <path d="m100,150 l10,-10 h80 l10,10 -10,10 h-80 z" fill="red" />
+    </symbol>
+  </defs>
+
+  <use href="#segment" transform="translate(0,-100)" />
+  <use href="#segment" transform="translate(0,0)" />
+  <use href="#segment" transform="translate(0,100)" />
+
+  <use href="#segment" transform="translate(-50,-50) rotate(90,150,150)" />
+  <use href="#segment" transform="translate(50,-50)  rotate(90,150,150)" />
+  <use href="#segment" transform="translate(-50,50)  rotate(90,150,150)" />
+  <use href="#segment" transform="translate(50,50)   rotate(90,150,150)" />
+
+</svg>

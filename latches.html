@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Latches</title>
+
+    <link rel="stylesheet" type="text/css" href="/index.css">
+
+    <style>
+      main {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      fieldset p {
+	  max-width:30em;
+      }
+      fieldset.thin svg {
+	  max-width:15em;
+      }
+      svg {
+	  width:30em;
+	  display:block;
+	  margin:auto;
+      }
+      u {
+	  text-decoration:overline;
+      }
+      
+      @media (orientation: portrait) {
+        main {
+	    flex-direction:column;
+	    align-items:center;
+        }
+	svg {
+	    min-width:90vw;
+	}
+      }      
+      
+    </style>
+      
+  </head>
+
+<body>
+    <nav id="backArrow"><a href="/index.html">&#11013;</a></nav>
+
+  <div style="max-width:40em; margin:auto;">
+  <p>Some of these circuits will act a little funny since all parts will initially be set to low voltage (false),
+  which doesn't occur in the real world.</p>
+  </div>
+
+  <main id="root">This will contain several SVGs of circuits.</main>
+
+    <script type="module" src="/src/latches-demo.jsx"></script>
+  
+  <footer>
+    <p>Please visit <a href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)">Wikipedia</a>
+      or watch <a href="https://www.youtube.com/watch?v=KM0DdEaY5sY">Ben Eater's video</a> for more information about latches.</p>
+  </footer>
+  
+</body>
+</html>

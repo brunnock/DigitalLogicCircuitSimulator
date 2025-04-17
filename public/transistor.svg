@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300">
+
+  <title>NPN Transistor</title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <style>
+    svg * {
+    stroke-width:5px;
+    stroke:#444;
+    fill:none;
+    }
+  </style>
+
+  <circle cx="50%" cy="50%" r="140" />
+
+  <path d="m20,100 h30 l50,100 h100 l50,-100 h30" />
+  <line x1="50%" x2="50%" y1="200" y2="290" />
+  <path d="m245,110 l-20,30 h40 z" style="fill:#444" transform-origin="245 110" transform="rotate(25)" />
+  
+</svg>

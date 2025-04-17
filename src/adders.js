@@ -1,4 +1,4 @@
-const BCDadder = {
+export const BCDadder = {
 
   full1sevenD: {type:'wire', d:'m550,450 v-278 h-96'},
   full2hex2in: {type:'wire', d:'m400,450 v-35 h-60 v-35'},
@@ -45,7 +45,7 @@ const BCDadder = {
   
 }
 
-const chainedAdders = {
+export const chainedAdders = {
 
   full8sevenA: {type:'wire', d:'m100,250 v-78 h196'},
   full4sevenB: {type:'wire', d:'m250,250 v-40 h65 v-40'},
@@ -82,7 +82,7 @@ const chainedAdders = {
 }
 
 
-const halfAdder = {
+export const halfAdder = {
   buttonAxor1: { type:'wire', d:'M75,60  h188',      state:false, out:['xor1'] },
   buttonAand1: { type:'wire', d:'M75,60 l200,150',   state:false, out:['and1'] },
   buttonBand1: { type:'wire', d:'M75,240 h200',      state:false, out:['and1'] },
@@ -98,7 +98,7 @@ const halfAdder = {
 };
 
 
-const fullAdder = {
+export const fullAdder = {
   buttonAxor1: { type:'wire', d:'M75,150 h185',      state:false, out:['xor1'] },
   buttonAand1: { type:'wire', d:'M75,150 l200,230',  state:false, out:['and1'] },
   buttonBand1: { type:'wire', d:'M75,400 h200',      state:false, out:['and1'] },
@@ -127,7 +127,7 @@ const fullAdder = {
 };
 
 
-const halfComponent = {
+export const halfComponent = {
   buttonAhalf1: {type:'wire', d:'m50,100 h50'},
   buttonBhalf1: {type:'wire', d:'m50,200 h50'},
 
@@ -145,7 +145,7 @@ const halfComponent = {
 };
 
 
-const twoHalfComponents = {
+export const twoHalfComponents = {
   buttonChalf2: {type:'wire', d:'m50,100 h250'},
   buttonAhalf1: {type:'wire', d:'m50,200 h100'},
   buttonBhalf1: {type:'wire', d:'m50,300 h100'},
@@ -171,7 +171,7 @@ const twoHalfComponents = {
 };
 
 
-const fullComponent = {
+export const fullComponent = {
   buttonAfull1: {type:'wire', d:'m175,250, v-50'},
   buttonBfull1: {type:'wire', d:'m225,250, v-50'},
   buttonCfull1: {type:'wire', d:'m350,150, h-100'},

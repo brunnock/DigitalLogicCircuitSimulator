@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300">
+
+  <title>Latch</title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <style>
+    svg * {
+    stroke-width:2px;
+    stroke:#000;
+    fill:#fff;
+    }
+    
+    text,tspan {
+    stroke-width:0px;
+    font-family:sans-serif;
+    fill:#000;
+    font-size:40px;
+    }
+
+    tspan.smaller {
+    font-size:60%;
+    }
+  </style>
+
+
+  <path d="m0,100 h50"></path>
+  <path d="m0,200 h50"></path>
+
+  <path d="m300,100 h-50"></path>
+  <path d="m300,200 h-50"></path>
+
+  <rect x="50" y="50" width="200" height="200"></rect>
+  
+  <text x="55" y="115">S</text>
+  <text x="55" y="215">R</text>
+  
+  <text x="240" y="115" text-anchor="end">Q</text>
+  <text x="240" y="215" text-anchor="end" style="text-decoration:overline">Q</text>
+
+</svg>

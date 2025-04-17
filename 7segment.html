@@ -7,20 +7,12 @@
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <title>Seven segment LED</title>
 
+    <link rel="stylesheet" type="text/css" href="/index.css">
+
     <style>
-      fieldset {
-	  max-width:50em;
-      }
-      legend {
-	  font-weight:bold;
-	  font-size:150%;
-      }
       svg {
 	  width:90vw;
-	  max-width:50em;
-      }
-      text {
-	  font-family:sans-serif;
+	  max-width:40em;
       }
     </style>
       
@@ -28,11 +20,13 @@
 
 <body>
 
-  <p>A <a href="https://en.wikipedia.org/wiki/Seven-segment_display">seven-segment display</a> uses 7 LEDs to show a single character.</p>
-  
-  <main id="root" class="flexColumn">This will contain several SVGs of circuits.</main>
+    <nav id="backArrow"><a href="/index.html">&#11013;</a></nav>
 
-  <script type="module" src="/src/7segment-demo.jsx"></script>
+    <p>A <a href="https://en.wikipedia.org/wiki/Seven-segment_display">seven-segment display</a> uses 7 LEDs to show a single character.</p>
+  
+    <main id="root" class="flexColumn">This will contain several SVGs of circuits.</main>
+
+    <script type="module" src="/src/7segment-demo.jsx"></script>
   
 </body>
 </html>

@@ -1,5 +1,6 @@
+import {Qcomp} from './common.js';
 
-const nibbles = {
+export const nibbles = {
   keypadNib4Clk:    {type:'wire', d:'m550,540 h40 v-95 h-40'},
   keypadNib3Clk:    {type:'wire', d:'m550,540 h40 v-195 h-190'},
   keypadNib2Clk:    {type:'wire', d:'m550,540 h40 v-295 h-340'},
@@ -68,7 +69,7 @@ const nibbles = {
   
 }
 
-const nibble = {
+export const nibble = {
 
   keypadNibClk:  {type:'wire', d:'m100,250 h50 v-105 h-50'},
   
@@ -83,7 +84,7 @@ const nibble = {
   
 }
 
-const register1 ={
+export const register1 ={
 
   buttonFlip1: { type:'wire', d:'m850,200 h-700' },
 
@@ -116,7 +117,7 @@ const register1 ={
 
 }
 
-const counter7segment ={
+export const counter7segment ={
 
   buttonFlip1: { type:'wire', d:'m950,275 h-100' },
 
@@ -149,7 +150,7 @@ const counter7segment ={
 }
 
 
-const flipCounter4 ={
+export const flipCounter4 ={
 
   buttonFlip1: { type:'wire', d:'m950,175 h-100' },
 
@@ -183,7 +184,7 @@ const flipCounter4 ={
 
 }
 
-const flipCounter1 ={
+export const flipCounter1 ={
 
   Clkflip1: { type:'wire', d:'M50,130 h100' },
   QQ2D: { type:'wire', d:'M250,130 h20 v50 h-150 v-105 h30'},
@@ -198,7 +199,7 @@ const flipCounter1 ={
   
 }
 
-const flipComponent ={
+export const flipComponent ={
 
   Dflip1: { type:'wire', d:'M50,75 h100'  },
   Clkflip1: { type:'wire', d:'M50,130 h100' },
@@ -216,7 +217,7 @@ const flipComponent ={
   
 }
 
-const posDflip = {
+export const posDflip = {
 
   masterRect: {type:'raw', text: '<rect x="80" y="0" width="240" height="300" style="stroke-width:0; fill:#eee" />' },
   slaveRect:  {type:'raw', text: '<rect x="90" y="450" width="220" height="300" style="stroke-width:0; fill:#eee" />' },

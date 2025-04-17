@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 300"
+     id="svg1">
+
+  <title></title>
+  <desc property="dc:creator">Sean Brunnock</desc>
+
+  <style>
+    svg * {
+    stroke-width:1px;
+    stroke:#000;
+    fill:none;
+    }
+    circle {
+    fill:#000;
+    }
+  </style>
+
+
+  <line x1="0" x2="100" y1="50%" y2="50%" />
+
+  <circle cx="100" cy="50%" r="10" class="" />
+  <line x1="100" x2="175" y1="50%" y2="25%" />
+  <circle cx="200" cy="50%" r="10" />
+
+  <line x1="200" x2="100%" y1="50%" y2="50%" />
+  
+
+  
+</svg>

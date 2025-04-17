@@ -1,9 +1,9 @@
 import React from 'react';
 import reducer from './reducer.js';
 import {splitRegex} from './common.js';
-import {Wire,Button,Light,LED,Selector,Node} from './discrete.jsx';
+import {Wire,Button,TempButton,Light,LED,Selector,Node} from './discrete.jsx';
 import {NOT,AND,NAND,OR,NOR,XOR,XNOR,Buffer} from './gates.jsx';
-import {HexSevenSegment,Encoder8x3,Keypad,Dmux2,Dmux4,Decoder2x4,Hex2BCD,Mux,Mux2} from './components.jsx';
+import {HexSevenSegment,Encoder8x3,Keypad,Dmux2,Dmux4,Decoder2x4,Hex2BCD,Mux,Mux2,GatedDlatch,UpDownGDlatch,HalfAdder,FullAdder,FlipD,FlipBT,Nibble,TempKeypad,FlipDRL} from './components.jsx';
 
 function setInputs(parts) {
   // go through parts, find outputs, set their inputs
@@ -88,7 +88,8 @@ function Circuit(props) {
 
   //console.log(state);
   
-  return <svg id={props.circuitID} viewBox={`0 0 ${(props.width || 600)} ${(props.height || 600)}`}>
+  return (
+    <svg id={props.circuitID} viewBox={`0 0 ${(props.width || 600)} ${(props.height || 600)}`}>
 
   {Object.entries(state.parts).map( ([partID,props]) => {
      switch (props.type) {
@@ -201,8 +202,8 @@ function Circuit(props) {
      }
    }
   )}
-	 </svg>
-
+    </svg>
+  )
 }
 
 export default Circuit;
