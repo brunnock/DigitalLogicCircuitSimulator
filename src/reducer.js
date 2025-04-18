@@ -11,11 +11,12 @@ function reducer(state2, action) {
       part.in ||= [];
     }
     catch(e) {
+      //console.log(e);
       alert('trouble with ' +partID);
       return null;
     };
     
-    let selected=null, input=null, output=null, D=null, E=null, oldClk=false, newClk=false, newState={};
+    let input=null, output=null, D=null, E=null, oldClk=false, newClk=false, newState={};
     let [a,b,c] = part.in.map(x=>state.parts[x].state);
     
     switch (part.type) {
@@ -40,10 +41,11 @@ function reducer(state2, action) {
 
     case 'halfAdder': return {sum:((a||b) && !(a&&b)), carry:a&&b};
 
-    case 'fullAdder':
+    case 'fullAdder': {
       let trues = [a,b,c].filter(x=>x).length; // count true values
       return {sum:((trues%2)==1), carry:(trues>=2)};
-
+    }
+      
     case 'gatedDlatch':
       D = state.parts[partID+'_D']?.state;
       E = state.parts[partID+'_E']?.state;
@@ -102,7 +104,7 @@ function reducer(state2, action) {
 	return a;
       }
       
-    case 'mux':
+    case 'mux': {
       // return the state of the input specified by the signals
       // the signals are in part.sigs
       // join them to create a binary number
@@ -111,7 +113,7 @@ function reducer(state2, action) {
       let selected = parseInt(part.sigs.map(x=>state.parts[partID+'_'+x].state ? 1 : 0).join(''),2);
       part.selected = selected;
       return(state.parts[part.in[selected]].state)
-
+    }
       
     case 'dmux2': 
     case 'dmux4': return a;
@@ -126,7 +128,7 @@ function reducer(state2, action) {
       return(newState);
 
       
-    case 'hex2bcd':
+    case 'hex2bcd': {
       let inputs =  part.ins.map(x=>state.parts[partID+'_'+x].state ? 1 : 0);
       input = parseInt(inputs.join(''),2) * 2; // multiply by two to indicate left-shift
       if (input<10) {
@@ -141,9 +143,9 @@ function reducer(state2, action) {
       case 18: return({outC:true, out8:true, out4:false, out2:false});
       }
       return({});
-
+    }
       
-    case 'encoder8x3':
+    case 'encoder8x3': {
       // return value of selected input
       let decimal =  part.in.map(x=>state.parts[x].state).indexOf(true);
       // convert decimal to bin
@@ -154,15 +156,13 @@ function reducer(state2, action) {
       }
       // the MSB is the first bit
       return {selected:decimal, o4:outs[0], o2:outs[1], o1:outs[2]};
-
+    }
       
     case 'hex7segment':
       // convert inputs into binary number and convert that into hex string
       return parseInt(part.in.map(x => (state.parts[x].state ? '1' : '0')).join('') ,2).toString(16);
       
     case 'parent':
-      //let selected = state.parts[part.parent].state[part.property];
-      //part.selected = selected;
       return state.parts[part.parent].state[part.property];
       
     default:  return OR(part.in);
@@ -191,13 +191,13 @@ function reducer(state2, action) {
 	if (newState.carry !== part.state.carry) newList.push(partID+'_carry');
 	part.state = newState;
       }
-	
+      
       if (part.type && (part.type.startsWith('flip') || part.type.endsWith('latch'))) {
 	if (newState.Q  !== part.state.Q)  newList.push(partID+'_Q');
 	if (newState.QQ !== part.state.QQ) newList.push(partID+'_QQ');
 	part.state = newState;
       }
-	
+      
       if (part.type==='encoder8x3') {
 	if (newState.o1  !== part.state.o1) newList.push(partID+'_o1');
 	if (newState.o2  !== part.state.o2) newList.push(partID+'_o2');
@@ -261,7 +261,7 @@ function reducer(state2, action) {
     break;
 
     
-  case 'pressKeypad':
+  case 'pressKeypad': {
     part = state.parts[action.partID];
 
     // convert decimal to bin
@@ -278,7 +278,7 @@ function reducer(state2, action) {
     updateParts([1,2,4,8].map(x=>`${action.partID}_o${x}`));
 
     break;
-
+  }
     
   case 'pressTempKeypad':
     part = state.parts[action.partID];
@@ -305,7 +305,7 @@ function reducer(state2, action) {
     
     break;
 
-  case 'selectButton':
+  case 'selectButton': {
     let selector = state.parts[action.selectorID];
     // turn off the old selection
     if (selector.selected) {
@@ -317,6 +317,7 @@ function reducer(state2, action) {
     state.parts[action.partID].state=true;
     updateParts(state.parts[action.partID].out);
     break;
+  }
   }
 
   

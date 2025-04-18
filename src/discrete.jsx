@@ -81,7 +81,7 @@ export function Selector({partID,props,dispatch}) {
 }
 
 export function Light({props}) {
-  let {cx,cy,state,label,r=50,transform='',complement=false} = props;
+  let {cx,cy,state,label,r=50,transform=''} = props;
   let x1=cx-r*.8;
   let x2=cx+r*.8;
   let y1=cy-r*.6;

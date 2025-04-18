@@ -71,8 +71,8 @@ export function TempKeypad({partID,props,dispatch}) {
 };
 
 
-export function Nibble({id, props}) {
-  let {cx,cy,transform='',state={}} = props;
+export function Nibble({props}) {
+  let {cx,cy,transform=''} = props;
   //<text x={cx+90} y={cy} textAnchor="end" alignmentBaseline="middle">E</text>
 
   return (
@@ -110,7 +110,7 @@ export function UpDownGDlatch({props}) {
   );
 }
 
-export function Hex2BCD({id, props}) {
+export function Hex2BCD({props}) {
   //console.log(props);
   let {cx,cy,transform=''} = props;
   return (
@@ -196,7 +196,7 @@ export function Dmux2({id, props}) {
 }
 
 
-export function HexSevenSegment({id, props}) {
+export function HexSevenSegment({props}) {
   let {cx,cy,transform='',state} = props;
   let bits = [0,0,0,0];
   if (state) bits = parseInt(state, 16).toString(2).padStart(4,'0').split('');
@@ -213,7 +213,7 @@ export function HexSevenSegment({id, props}) {
 }
 
 
-export function Decoder2x4({id, props}) {
+export function Decoder2x4({props}) {
   let {cx,cy,transform=''} = props;
   return (
     <g transform={transform}>
@@ -250,7 +250,7 @@ export function Mux2({id, props}) {
 
 export function Mux({id, props}) {
   // can be used to show a 4-1 or 8-1 mux
-  let {cx,cy,transform='',ins=[],sigs=[],selected} = props;
+  let {cx,cy,transform='',ins=[],selected} = props;
   let height = 22*ins.length;
   let top = cy - (height/2);
   return (

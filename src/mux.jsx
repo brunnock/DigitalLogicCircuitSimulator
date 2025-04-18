@@ -99,7 +99,7 @@ export const triBuffer = {
   A:       { type:'button', cx:50,  cy:60,   r:30, transform:'scale(.7)', out:'A2buffer buffer', label:'A', },
   S:       { type:'button', cx:190, cy:170,  r:30, transform:'scale(.7)', out:'S2Buffer buffer', label:'S',  },
   buffer:  { type:'buffer', cx:200, cy:60,  out:'buffer2out out' },
-  out:     { type:'light',  cx:350, cy:60,  transform:'scale(.7)', transform:'scale(.5)'},
+  out:     { type:'light',  cx:350, cy:60,  transform:'scale(.5)'},
 }
 
 
