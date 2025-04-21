@@ -7,6 +7,7 @@ function reducer(state2, action) {
   const AND = (arr) => !arr.map(x=>state.parts[x].state).includes(false);
   
   function calculateState (part,partID)  {
+
     try {
       part.in ||= [];
     }
@@ -16,7 +17,8 @@ function reducer(state2, action) {
       return null;
     };
     
-    let input=null, output=null, D=null, E=null, oldClk=false, newClk=false, newState={};
+    let newState={};
+
     let [a,b,c] = part.in.map(x=>state.parts[x].state);
     
     switch (part.type) {
@@ -46,22 +48,24 @@ function reducer(state2, action) {
       return {sum:((trues%2)==1), carry:(trues>=2)};
     }
       
-    case 'gatedDlatch':
-      D = state.parts[partID+'_D']?.state;
-      E = state.parts[partID+'_E']?.state;
+    case 'gatedDlatch': {
+      let D = state.parts[partID+'_D']?.state;
+      let E = state.parts[partID+'_E']?.state;
       if (E) return {Q:D, QQ:!D};
       return part.state;
+    }
       
-    case 'upDownGDlatch':
-      D = state.parts[partID+'_D']?.state;
-      E = state.parts[partID+'_E']?.state;
+    case 'upDownGDlatch': {
+      let D = state.parts[partID+'_D']?.state;
+      let E = state.parts[partID+'_E']?.state;
       if (E) return {Q:D};
       return part.state;
+    }
       
-    case 'nibble':
+    case 'nibble': {
       // if Clk goes to 1, then update outputs
-      oldClk = part.state.Clk;
-      newClk = state.parts[partID+'_Clk'].state;
+      let oldClk = part.state.Clk;
+      let newClk = state.parts[partID+'_Clk'].state;
       if (newClk && !oldClk) {
 	// clock went up, update
 	[1,2,4,8].forEach(x=> newState[`o${x}`] = state.parts[partID+`_i${x}`].state );
@@ -69,30 +73,33 @@ function reducer(state2, action) {
 	return newState;
       }
       return {...part.state, Clk:newClk};
+    }
       
     case 'flipD':
-    case 'flipDRL':
+    case 'flipDRL': {
       // if Clk goes to 1, then update Q and QQ to reflect D
-      oldClk = part.state.Clk;
-      newClk = state.parts[partID+'_Clk'].state;
+      let oldClk = part.state.Clk;
+      let newClk = state.parts[partID+'_Clk'].state;
       if (newClk && !oldClk) {
 	// clock went up, change Q and QQ
-	D = state.parts[partID+'_D']?.state;
+	let D = state.parts[partID+'_D']?.state;
 	return {Clk:true, Q:D, QQ:!D};
       }
       return {...part.state, Clk:newClk};
-
-    case 'flipBT':
+    }
+      
+    case 'flipBT': {
       // if Clk goes to 1, then update Q (no QQ)
-      oldClk = part.state.Clk;
-      newClk = state.parts[partID+'_Clk'].state;
+      let oldClk = part.state.Clk;
+      let newClk = state.parts[partID+'_Clk'].state;
       if (newClk && !oldClk) {
 	// clock went up, change Q 
-	D = state.parts[partID+'_D']?.state;
+	let D = state.parts[partID+'_D']?.state;
 	return {Clk:true, Q:D};
       }
       return {...part.state, Clk:newClk};
-
+    }
+      
     case 'mux2':
       // just 2 inputs (A+B) and 1 signal (S0)
       // they get mapped to a,b,c
@@ -118,19 +125,19 @@ function reducer(state2, action) {
     case 'dmux2': 
     case 'dmux4': return a;
       
-    case 'decoder':
+    case 'decoder': {
       // join the inputs to create a binary number
       // convert that to a decimal number
       // use that number as the index to select the output
-      output = parseInt(part.ins.map(x=>state.parts[x].state ? 1 : 0).join(''),2);
+      let output = parseInt(part.ins.map(x=>state.parts[x].state ? 1 : 0).join(''),2);
       newState = {};
       Object.keys(part.outs).forEach((x,indx)=> newState[x] = (indx===output));
       return(newState);
-
+    }
       
     case 'hex2bcd': {
       let inputs =  part.ins.map(x=>state.parts[partID+'_'+x].state ? 1 : 0);
-      input = parseInt(inputs.join(''),2) * 2; // multiply by two to indicate left-shift
+      let input = parseInt(inputs.join(''),2) * 2; // multiply by two to indicate left-shift
       if (input<10) {
 	// Simply pass the values. Have to convert nums to booleans with !!
 	return({outC:!!inputs[0], out8:!!inputs[1], out4:!!inputs[2], out2:!!inputs[3]});
@@ -230,7 +237,7 @@ function reducer(state2, action) {
 	  newList = newList.concat(state.parts[oldOutput].out);
 	}
 	part.selected = selected;
-	output = partID+'_o'+selected;
+	let output = partID+'_o'+selected;
 	state.parts[output].state = newState;
 	newList = newList.concat(state.parts[output].out);
       }

@@ -33,6 +33,10 @@ footer {
     margin:3em;
 }
 
+svg {
+    max-height:90vh;
+}
+
 svg * {
     stroke:#444;
     stroke-width:2px;
